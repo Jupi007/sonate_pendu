@@ -1,0 +1,11 @@
+{% extends '_layout.html' %}
+
+{% block title %}{{ super() }} | Accueil{% endblock %}
+
+{% block content %}
+<h1>Jeu du pendu - Accueil</h1>
+
+{% for word in word_list %}
+{{ word }}<br>
+{% endfor %}
+{% endblock %}

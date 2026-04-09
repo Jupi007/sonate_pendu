@@ -5,9 +5,6 @@
 {% block content %}
 <h1>Jeu du pendu</h1>
 
-{% if username %}
-<p>Bonjour "{{ username }}"</p>
-{% endif %}
 <form action="/" method="post">
     <label for="username">Nom :</label>
     <input type="text" id="username" name="username">

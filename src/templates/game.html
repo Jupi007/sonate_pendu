@@ -3,26 +3,24 @@
 {% block title %}{{ super() }} | Accueil{% endblock %}
 
 {% block content %}
-<h1>Jeu du pendu</h1>
+    <p>Bonjour <strong>{{ username }}</strong></p>
 
-<p>Bonjour "{{ username }}",</p>
+    <p>Nombre de vies restantes : <strong>{{ remaining_lifes }}</strong></p>
 
-<p>
-    Le mot à deviner est :
-    <span style="letter-spacing: 2px;">
-        {{ hint }}
-    </span>
-    ({{ word }})
-</p>
+    <pre>{{ gallows }}</pre>
 
-<p>
-    Choisir une lettre :
-<form action="/jouer/envoyer" method="POST">
-    {% for letter in alphabet %}
-    <button type="submit" name="letter" value="{{ letter }}" {% if letter in player_attempts %}disabled{% endif %}>
-        {{ letter }}
-    </button>
-    {% endfor %}
-</form>
-</p>
+    <p>
+        Le mot à deviner est :
+        <strong style="letter-spacing: 3px;">
+            {{ hint }}
+        </strong>
+    </p>
+
+    <form action="/jouer/envoyer" method="POST">
+        {% for letter in alphabet %}
+            <button type="submit" name="letter" value="{{ letter }}" {% if letter in player_attempts %}disabled{% endif %}>
+                {{ letter }}
+            </button>
+        {% endfor %}
+    </form>
 {% endblock %}

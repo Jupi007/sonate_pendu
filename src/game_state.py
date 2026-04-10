@@ -1,5 +1,6 @@
 from flask import session
 
+
 _USERNAME_SESSION_KEY = "username"
 _WORD_ID_SESSION_KEY = "word_id"
 _PLAYER_ATTEMPTS_SESSION_KEY = "player_attempts"
@@ -8,7 +9,7 @@ _PLAYER_ATTEMPTS_SESSION_KEY = "player_attempts"
 class _GameState:
     @property
     def username(self):
-        return session.get(_USERNAME_SESSION_KEY)
+        return session.get(_USERNAME_SESSION_KEY, '')
 
     @username.setter
     def username(self, value):
@@ -16,7 +17,7 @@ class _GameState:
 
     @property
     def word_id(self):
-        return session.get(_WORD_ID_SESSION_KEY)
+        return session.get(_WORD_ID_SESSION_KEY, None)
 
     @word_id.setter
     def word_id(self, value):

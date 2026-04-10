@@ -3,11 +3,9 @@
 {% block title %}{{ super() }} | Accueil{% endblock %}
 
 {% block content %}
-<h1>Jeu du pendu</h1>
-
-<form action="/" method="post">
-    <label for="username">Nom :</label>
-    <input type="text" id="username" name="username">
-    <button type="submit">Jouer</button>
-</form>
+    <form action="/" method="post">
+        <label for="username">Votre nom :</label>
+        <input type="text" id="username" name="username">
+        <button type="submit">Démarrer</button>
+    </form>
 {% endblock %}

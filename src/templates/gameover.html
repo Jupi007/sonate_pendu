@@ -1,0 +1,16 @@
+{% extends '_layout.html' %}
+
+{% block title %}{{ super() }} | Accueil{% endblock %}
+
+{% block content %}
+    {% if victory %}
+        <p>Bravo, vous avez gagné !</p>
+        <p>Le mot était bien : <strong>{{ word }}</strong></p>
+    {% else %}
+        <p>Vous avez perdu...</p>
+        <pre>{{ failed_gallows }}</pre>
+        <p>Le mot était : <strong>{{ word }}</strong></p>
+    {% endif %}
+
+    <a href="/">Nouvelle partie</a>
+{% endblock %}

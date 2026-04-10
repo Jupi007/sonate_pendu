@@ -1,0 +1,1 @@
+PLAYER_LIFES = 5

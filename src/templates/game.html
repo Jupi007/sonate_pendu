@@ -5,6 +5,24 @@
 {% block content %}
 <h1>Jeu du pendu</h1>
 
-<p>Bonjour "{{ username }}"</p>
-<p>Le mot est "{{ word }}"</p>
+<p>Bonjour "{{ username }}",</p>
+
+<p>
+    Le mot à deviner est :
+    <span style="letter-spacing: 2px;">
+        {{ hint }}
+    </span>
+    ({{ word }})
+</p>
+
+<p>
+    Choisir une lettre :
+<form action="/jouer/envoyer" method="POST">
+    {% for letter in alphabet %}
+    <button type="submit" name="letter" value="{{ letter }}" {% if letter in player_attempts %}disabled{% endif %}>
+        {{ letter }}
+    </button>
+    {% endfor %}
+</form>
+</p>
 {% endblock %}

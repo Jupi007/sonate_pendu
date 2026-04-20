@@ -8,7 +8,7 @@ class _Dictionnary:
         with open("src/data/dictionnaire.txt", "r") as file:
             self._words = [self._normalize_line(line) for line in file if line.strip()]
 
-    def _normalize_line(self, line: str):
+    def _normalize_line(self, line: str) -> str:
         # Remove accented characters with unidecode
         return unidecode(line.split(";")[0].strip()).upper()
 

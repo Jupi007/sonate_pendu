@@ -7,7 +7,7 @@
 
     <p>Nombre de vies restantes : <strong>{{ remaining_lifes }}</strong></p>
 
-    <pre>{{ gallows }}</pre>
+    {% include '_gallows.html' %}
 
     <p>
         Le mot à deviner est :
@@ -18,9 +18,9 @@
 
     <form action="/jouer/envoyer" method="POST">
         {% for letter in alphabet %}
-            <button type="submit" name="letter" value="{{ letter }}" {% if letter in player_attempts %}disabled{% endif %}>
-                {{ letter }}
-            </button>
+        <button type="submit" name="letter" value="{{ letter }}" {% if letter in player_attempts %}disabled{% endif %}>
+            {{ letter }}
+        </button>
         {% endfor %}
     </form>
 {% endblock %}

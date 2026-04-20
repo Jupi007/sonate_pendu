@@ -8,7 +8,8 @@
         <p>Le mot était bien : <strong>{{ word }}</strong></p>
     {% else %}
         <p>Vous avez perdu...</p>
-        <pre>{{ failed_gallows }}</pre>
+        {% set remaining_lifes = 0 %}
+        {% include '_gallows.html' %}
         <p>Le mot était : <strong>{{ word }}</strong></p>
     {% endif %}
 

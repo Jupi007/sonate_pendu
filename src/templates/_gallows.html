@@ -1,9 +1,5 @@
-from src.constants import PLAYER_LIFES
-
-
-class Gallows:
-    _STAGES = [
-        """
+<pre>
+{% if remaining_lifes == 5 %}
    +---+
        |
        |
@@ -11,8 +7,7 @@ class Gallows:
        |
        |
 =========
-""",
-        """
+{% elif remaining_lifes == 4 %}
    +---+
    |   |
        |
@@ -20,8 +15,7 @@ class Gallows:
        |
        |
 =========
-""",
-        """
+{% elif remaining_lifes == 3 %}
    +---+
    |   |
    O   |
@@ -29,8 +23,7 @@ class Gallows:
        |
        |
 =========
-""",
-        """
+{% elif remaining_lifes == 2 %}
    +---+
    |   |
    O   |
@@ -38,27 +31,21 @@ class Gallows:
        |
        |
 =========
-""",
-        """
+{% elif remaining_lifes == 1 %}
    +---+
    |   |
    O   |
-  /|\\  |
+  /|\  |
        |
        |
 =========
-""",
-        """
+{% elif remaining_lifes == 0 %}
    +---+
    |   |
    O   |
-  /|\\  |
-  / \\  |
+  /|\  |
+  / \  |
        |
 =========
-""",
-    ]
-
-    @staticmethod
-    def get_progress_ascii(remaining_lifes: int) -> str:
-        return Gallows._STAGES[PLAYER_LIFES - remaining_lifes]
+{% endif %}
+</pre>

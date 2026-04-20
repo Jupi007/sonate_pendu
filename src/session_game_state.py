@@ -6,28 +6,28 @@ _WORD_ID_SESSION_KEY = "word_id"
 _PLAYER_ATTEMPTS_SESSION_KEY = "player_attempts"
 
 
-class _GameState:
+class _SessionGameState:
     @property
-    def username(self):
-        return session.get(_USERNAME_SESSION_KEY, '')
+    def username(self) -> str:
+        return session.get(_USERNAME_SESSION_KEY, "")
 
     @username.setter
-    def username(self, value):
+    def username(self, value: str):
         session[_USERNAME_SESSION_KEY] = value
 
     @property
-    def word_id(self):
-        return session.get(_WORD_ID_SESSION_KEY, None)
+    def word_id(self) -> int:
+        return int(session.get(_WORD_ID_SESSION_KEY, None))
 
     @word_id.setter
-    def word_id(self, value):
+    def word_id(self, value: int):
         session[_WORD_ID_SESSION_KEY] = value
 
     @property
-    def player_attempts(self):
+    def player_attempts(self) -> list[str]:
         return list(session.get(_PLAYER_ATTEMPTS_SESSION_KEY, ""))
 
-    def add_player_attempt(self, letter):
+    def add_player_attempt(self, letter: str):
         assert len(letter) == 1
         player_attempts = self.player_attempts
         letter = letter.upper()
@@ -40,4 +40,4 @@ class _GameState:
         session.clear()
 
 
-game_state = _GameState()
+session_game_state = _SessionGameState()

@@ -43,7 +43,7 @@ class Gallows:
    +---+
    |   |
    O   |
-  /|\  |
+  /|\\  |
        |
        |
 =========
@@ -52,12 +52,13 @@ class Gallows:
    +---+
    |   |
    O   |
-  /|\  |
-  / \  |
+  /|\\  |
+  / \\  |
        |
 =========
 """,
     ]
 
-    def get_progress_ascii(remaining_lifes):
+    @staticmethod
+    def get_progress_ascii(remaining_lifes: int) -> str:
         return Gallows._STAGES[PLAYER_LIFES - remaining_lifes]

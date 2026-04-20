@@ -77,3 +77,12 @@ def gameover():
         word=word,
         victory=request.args.get("victory") == "1",
     )
+
+
+@gameRoutes.route("/rejouer", methods=["GET"])
+def play_again():
+    username = session_game_state.username
+    session_game_state.clear()
+    session_game_state.username = username
+    session_game_state.word_id = dictionnary.get_random_word_id()
+    return redirect("/jouer", 303)

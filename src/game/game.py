@@ -28,6 +28,7 @@ class HangmanGame:
                 hint += "_"
         return hint
 
+    @property
     def remaining_word_letters(self) -> int:
         word = dictionnary.get(self._state.word_id)
         remaining_word_letters = list(set(word))
